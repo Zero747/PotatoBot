@@ -16,9 +16,9 @@ namespace BigSister
     public static class Bot
     {
         static Timer reminderTimer;                           // Test server                   , Poe home                 , Rimworld
-        //static readonly ulong[] channelIds = new ulong[]       { 564290158078197781,      701631184832167996  ,      780350282144022548   };
-        static readonly ulong[] channelIds = new ulong[] { 564290158078197781};
-        static readonly string[] mentionStrings = new string[] { @"<@&865092113732206602>", @"<@&701642824487141376>", @"<@&780034969870401566>" };
+        static readonly ulong[] channelIds = new ulong[]       { 564290158078197781, 1016014664297095308, 913129326277427220 };
+        //static readonly ulong[] channelIds = new ulong[] { 564290158078197781 };
+        static readonly string[] mentionStrings = new string[] { @"<@&865092113732206602>", @"<@&1010984894010241055>", @"<@&793923028135706655>" };
         static DiscordChannel[] _channels;
 
         static async Task<DiscordChannel[]> GetChannels()
@@ -41,7 +41,7 @@ namespace BigSister
             // Configure timer. Set it up BEFORE registering events.
             reminderTimer = new Timer
             {
-                Interval = 60000, // 1 minute
+                Interval = 60000,// 1 minute
                 AutoReset = true
             };
 
@@ -75,8 +75,10 @@ namespace BigSister
         private static void ReminderTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             // Check if there are any pending.
-            if(Announcements.Instance.IsPending())
+            //Console.WriteLine("Timer Tick");
+            if (Announcements.Instance.IsPending())
             {   // There are some announcements pending, so let's get which ones they are.
+                //Console.WriteLine("PendingFound");
                 List<AnnouncementInfo> announcementsPost =
                     Announcements.Instance.GetPendingAnnouncements();
 

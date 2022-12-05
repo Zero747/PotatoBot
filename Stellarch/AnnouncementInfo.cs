@@ -22,13 +22,13 @@ namespace BigSister
         [JsonIgnore]
         public DateTimeOffset PostTime
         {
-            get => DateTimeOffset.ParseExact(time, FORMAT_RECEIVE, CultureInfo.InvariantCulture.DateTimeFormat);
+            get => DateTimeOffset.ParseExact(time, FORMAT_RECEIVE, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.AssumeUniversal);
         }
 
         [JsonIgnore]
         public DateTimeOffset EndTime
         {
-            get => DateTimeOffset.ParseExact(end, FORMAT_RECEIVE, CultureInfo.InvariantCulture.DateTimeFormat);
+            get => DateTimeOffset.ParseExact(end, FORMAT_RECEIVE, CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.AssumeUniversal);
         }
 
         string GetTwitchLink()

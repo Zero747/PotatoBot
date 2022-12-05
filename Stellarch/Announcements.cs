@@ -104,6 +104,7 @@ namespace BigSister
             if (announcements.Count > 0)
             {   // Yes, there are! So let's set the next post.
                 nextPost = announcements.Min(a => a.PostTime);
+                Console.WriteLine("next post dto " + nextPost);
             }
             else
             {   // There are not, so let's set the next post to a time value that is unfeasible to reach so I have... /adequate/ time to get home 
